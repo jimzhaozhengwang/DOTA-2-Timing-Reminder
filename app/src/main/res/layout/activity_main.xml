@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="ucalled911.DOTA2TimerReminder.MainActivity">
+
+    <NumberPicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/minute_picker"
+        android:layout_marginTop="123dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/start_button"
+        android:layout_alignStart="@+id/start_button"
+        android:layout_marginLeft="34dp"
+        android:layout_marginStart="34dp" />
+
+    <NumberPicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/second_picker"
+        android:layout_alignTop="@+id/minute_picker"
+        android:layout_toRightOf="@+id/minute_picker"
+        android:layout_toEndOf="@+id/minute_picker"
+        android:layout_marginLeft="25dp"
+        android:layout_marginStart="25dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/r_start"
+        android:id="@+id/start_button"
+        android:layout_marginTop="76dp"
+        android:layout_below="@+id/minute_picker"
+        android:layout_centerHorizontal="true" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:layout_above="@+id/start_button"
+        android:layout_toLeftOf="@+id/minute_picker"
+        android:layout_toStartOf="@+id/minute_picker"
+        android:id="@+id/before_after_group">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/r_before"
+            android:id="@+id/before_button"
+            android:checked="false" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/r_after"
+            android:id="@+id/after_button"
+            android:checked="true"
+            android:layout_above="@+id/before_after_group"
+            android:layout_alignLeft="@+id/before_after_group"
+            android:layout_alignStart="@+id/before_after_group" />
+
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/r_minutes"
+        android:id="@+id/minute_text"
+        android:layout_marginBottom="22dp"
+        android:layout_above="@+id/second_picker"
+        android:layout_alignRight="@+id/minute_picker"
+        android:layout_alignEnd="@+id/minute_picker" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/r_seconds"
+        android:id="@+id/seconds_text"
+        android:layout_alignTop="@+id/minute_text"
+        android:layout_alignLeft="@+id/second_picker"
+        android:layout_alignStart="@+id/second_picker"
+        android:layout_alignBottom="@+id/minute_text"
+        android:layout_alignRight="@+id/second_picker"
+        android:layout_alignEnd="@+id/second_picker" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/r_colon"
+        android:id="@+id/colon"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="12dp"
+        android:layout_alignTop="@+id/before_after_group"
+        android:layout_toRightOf="@+id/minute_picker"
+        android:layout_toStartOf="@+id/seconds_text"
+        android:layout_toLeftOf="@+id/seconds_text" />
+
+</RelativeLayout>

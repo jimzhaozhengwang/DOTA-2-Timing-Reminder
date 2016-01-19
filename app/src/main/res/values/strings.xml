@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">DOTA 2 Reminder</string>
+    <string name="r_start">Start</string>
+    <string name="r_plus">+</string>
+    <string name="r_minus">-</string>
+    <string name="r_new_game">New Game</string>
+    <string name="r_after">After 00:00</string>
+    <string name="r_before">Before 00:00</string>
+    <string name="r_minutes">Minutes</string>
+    <string name="r_seconds">Seconds</string>
+    <string name="r_colon">:</string>
+</resources>
