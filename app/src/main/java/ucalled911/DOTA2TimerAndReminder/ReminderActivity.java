@@ -1,8 +1,10 @@
-package ucalled911.DOTA2TimerReminder;
+package ucalled911.DOTA2TimerAndReminder;
 
+import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Handler;
+import android.os.PowerManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -23,6 +25,9 @@ public class ReminderActivity extends AppCompatActivity {
     MediaPlayer stack_sound;
     MediaPlayer rune_sound;
     Intent main_activity;
+    PowerManager power_manager;
+    PowerManager.WakeLock wake_lock;
+
 
     Handler timerHandler = new Handler();
     Runnable timerRunnable = new Runnable() {
@@ -46,7 +51,13 @@ public class ReminderActivity extends AppCompatActivity {
         the_battle_begins_sound = MediaPlayer.create(this, R.raw.the_battle_begins);
         stack_sound = MediaPlayer.create(this, R.raw.stack);
         rune_sound = MediaPlayer.create(this, R.raw.rune);
+
         setup();
+
+        power_manager = (PowerManager) getSystemService(Context.POWER_SERVICE);
+        wake_lock = power_manager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "Wake Lock Tag");
+        wake_lock.acquire();
+
         main_activity = new Intent(ReminderActivity.this, MainActivity.class);
     }
 
@@ -57,6 +68,7 @@ public class ReminderActivity extends AppCompatActivity {
         stack_sound.release();
         rune_sound.release();
         timerHandler.removeCallbacks(timerRunnable);
+        wake_lock.release();
         finish();
         startActivity(main_activity);
     }
@@ -124,6 +136,7 @@ public class ReminderActivity extends AppCompatActivity {
                         stack_sound.release();
                         rune_sound.release();
                         timerHandler.removeCallbacks(timerRunnable);
+                        wake_lock.release();
                         finish();
                         startActivity(main_activity);
                     }
@@ -194,6 +207,17 @@ public class ReminderActivity extends AppCompatActivity {
 
         TextView time_text = (TextView) findViewById(R.id.time_text);
         time_text.setText(time);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        the_battle_begins_sound.release();
+        stack_sound.release();
+        rune_sound.release();
+        timerHandler.removeCallbacks(timerRunnable);
+        wake_lock.release();
+        finish();
     }
 }
 
