@@ -1,4 +1,4 @@
-package ucalled911.DOTA2TimerReminder;
+package ucalled911.DOTA2TimerAndReminder;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;

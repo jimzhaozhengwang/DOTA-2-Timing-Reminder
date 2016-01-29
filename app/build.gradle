@@ -5,7 +5,7 @@ android {
     buildToolsVersion "23.0.2"
 
     defaultConfig {
-        applicationId "ucalled911.DOTA2TimerReminder"
+        applicationId "ucalled911.DOTA2TimerAndReminder"
         minSdkVersion 15
         targetSdkVersion 23
         versionCode 1
