@@ -64,11 +64,6 @@ public class ReminderActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        the_battle_begins_sound.release();
-        stack_sound.release();
-        rune_sound.release();
-        timerHandler.removeCallbacks(timerRunnable);
-        wake_lock.release();
         finish();
         startActivity(main_activity);
     }
@@ -132,11 +127,6 @@ public class ReminderActivity extends AppCompatActivity {
         reset_button.setOnClickListener(
                 new Button.OnClickListener(){
                     public void onClick(View v){
-                        the_battle_begins_sound.release();
-                        stack_sound.release();
-                        rune_sound.release();
-                        timerHandler.removeCallbacks(timerRunnable);
-                        wake_lock.release();
                         finish();
                         startActivity(main_activity);
                     }
@@ -217,7 +207,6 @@ public class ReminderActivity extends AppCompatActivity {
         rune_sound.release();
         timerHandler.removeCallbacks(timerRunnable);
         wake_lock.release();
-        finish();
     }
 }
 
