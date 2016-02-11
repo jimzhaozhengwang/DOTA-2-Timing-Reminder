@@ -24,6 +24,10 @@ public class ReminderActivity extends AppCompatActivity {
     MediaPlayer the_battle_begins_sound;
     MediaPlayer stack_sound;
     MediaPlayer rune_sound;
+    MediaPlayer day_sound;
+    MediaPlayer night_sound;
+    MediaPlayer spawn_sound;
+
     Intent main_activity;
     PowerManager power_manager;
     PowerManager.WakeLock wake_lock;
@@ -51,6 +55,9 @@ public class ReminderActivity extends AppCompatActivity {
         the_battle_begins_sound = MediaPlayer.create(this, R.raw.the_battle_begins);
         stack_sound = MediaPlayer.create(this, R.raw.stack);
         rune_sound = MediaPlayer.create(this, R.raw.rune);
+        day_sound = MediaPlayer.create(this, R.raw.day);
+        night_sound = MediaPlayer.create(this, R.raw.night);
+        spawn_sound = MediaPlayer.create(this, R.raw.spawn);
 
         setup();
 
@@ -184,14 +191,25 @@ public class ReminderActivity extends AppCompatActivity {
             plus_minus_zero = plus;
         }else{
             time = String.format(plus_minus_zero + " %02d : %02d", minute, second);
-            if (plus_minus_zero.equals(minus) && minute == 0 && second == 20){
-                rune_sound.start();
-            }
-            if (plus_minus_zero.equals(plus) && (minute % 2) != 0 && second == 40){
-                rune_sound.start();
-            }
-            if (plus_minus_zero.equals(plus) && second == 33){
-                stack_sound.start();
+            if (plus_minus_zero.equals(minus)){
+                if (minute == 0 && second == 20){
+                    rune_sound.start();
+                }
+            }else{ // plus_minus_zero.equals(plus)
+                if ((minute % 2) != 0 && second == 40){
+                    rune_sound.start();
+                }
+                if (second == 33){
+                    stack_sound.start();
+                }
+                if (second == 20 || second == 50){
+                    spawn_sound.start();
+                }
+                if (minute != 0 && minute % 7 == 0 && second == 45){
+                    day_sound.start();
+                }else if (minute != 0 && minute % 3 == 0 && second == 45){
+                    night_sound.start();
+                }
             }
         }
 
@@ -205,8 +223,10 @@ public class ReminderActivity extends AppCompatActivity {
         the_battle_begins_sound.release();
         stack_sound.release();
         rune_sound.release();
+        day_sound.release();
+        night_sound.release();
+        spawn_sound.release();
         timerHandler.removeCallbacks(timerRunnable);
         wake_lock.release();
     }
 }
-
