@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
+
 public class ReminderActivity extends AppCompatActivity {
 
     MainActivity access = new MainActivity();
@@ -205,9 +206,9 @@ public class ReminderActivity extends AppCompatActivity {
                 if (second == 20 || second == 50){
                     spawn_sound.start();
                 }
-                if (minute != 0 && minute % 7 == 0 && second == 45){
+                if (minute != 0 && minute % 7 == 0 && second == 25){
                     day_sound.start();
-                }else if (minute != 0 && minute % 3 == 0 && second == 45){
+                }else if (minute != 0 && minute % 3 == 0 && second == 25){
                     night_sound.start();
                 }
             }
