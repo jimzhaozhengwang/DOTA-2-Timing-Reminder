@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void setup(){
+        setTitle("Dota Timer & Reminder");
         second = 0;
         minute = 0;
         plus_minus_zero = "0";
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         second_picker_listener();
         minute_picker_listener();
         start_button_listener();
+        settings_button_listener();
     }
 
     public void second_picker_listener(){
@@ -78,15 +80,27 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View V) {
                         int before_after_selected_id = before_after_group.getCheckedRadioButtonId();
                         before_after_button = (RadioButton) findViewById(before_after_selected_id);
-                        if (before_after_button.getId() == before_button.getId()){
+                        if (before_after_button.getId() == before_button.getId()) {
                             plus_minus_zero = "-";
-                        }
-                        else { // before_after_button.getId() == after_button.getId()
+                        } else { // before_after_button.getId() == after_button.getId()
                             plus_minus_zero = "+";
                         }
                         Intent reminder_activity = new Intent(MainActivity.this, ReminderActivity.class);
                         finish();
                         startActivity(reminder_activity);
+                    }
+                }
+        );
+    }
+
+    public void settings_button_listener(){
+        Button settings_button = (Button) findViewById(R.id.settings_button);
+        settings_button.setOnClickListener(
+                new Button.OnClickListener(){
+                    public void onClick(View v){
+                        Intent settings_activity = new Intent(MainActivity.this, SettingsActivity.class);
+                        finish();
+                        startActivity(settings_activity);
                     }
                 }
         );

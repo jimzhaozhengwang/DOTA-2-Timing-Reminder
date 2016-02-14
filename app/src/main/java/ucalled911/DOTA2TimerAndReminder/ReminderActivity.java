@@ -78,7 +78,7 @@ public class ReminderActivity extends AppCompatActivity {
 
     public void setup(){
         display_time();
-
+        setTitle("Dota Timer & Reminder");
         startTime = System.currentTimeMillis();
         timerHandler.postDelayed(timerRunnable, 0);
 
@@ -202,13 +202,14 @@ public class ReminderActivity extends AppCompatActivity {
                 }
                 if (second == 33){
                     stack_sound.start();
+                    // change stack time and add another time for after 7:30
                 }
                 if (second == 20 || second == 50){
                     spawn_sound.start();
                 }
-                if (minute != 0 && minute % 7 == 0 && second == 25){
+                if (minute != 0 && minute % 7 == 0 && second == 30){
                     day_sound.start();
-                }else if (minute != 0 && minute % 3 == 0 && second == 25){
+                }else if (minute != 0 && minute % 3 == 0 && second == 30){
                     night_sound.start();
                 }
             }
