@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="ucalled911.DOTA2TimerAndReminder"
-    android:versionCode="2"
-    android:versionName="1.1">
+    package="ucalled911.DOTA2TimerAndReminder">
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
@@ -26,6 +24,7 @@
         <activity
             android:name=".SettingsActivity"
             android:screenOrientation="portrait">
+
         </activity>
     </application>
 </manifest>
