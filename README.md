@@ -7,6 +7,9 @@ This app can remind the players of the following:
    - Day/Night Changes
 
 
+
+
+
 This app provides the player with full customization of its features including:
    - Current Game Time
    - Reminder Timing
