@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DOTA 2 Reminder</string>
+    <string name="app_name">Dota Timer Reminder</string>
     <string name="r_start">Start</string>
     <string name="r_plus">+</string>
     <string name="r_minus">-</string>
@@ -10,12 +10,22 @@
     <string name="r_seconds">Seconds</string>
     <string name="r_colon">:</string>
     <string name="title_activity_settings">SettingsActivity</string>
+    <string name="r_pause">Pause</string>
+    <string name="r_play">Play</string>
     <string name="r_rune">Rune</string>
     <string name="r_settings">Settings</string>
     <string name="r_stack">Stack</string>
     <string name="r_spawn">Spawn</string>
     <string name="r_day_night">Day Night</string>
-    <string-array name="thirty_seconds_array">
+    <string name="r_back">Back</string>
+    <string name="r_off">OFF</string>
+    <string name="r_disabled">is disabled</string>
+    <string name="r_set_to">is set to</string>
+    <string name="r_seconds_before_event"> seconds before event</string>
+    <string name="r_reminder">reminder</string>
+
+
+    <string-array name="r_thirty_seconds_array">
         <item>OFF</item>
         <item>26</item>
         <item>27</item>
@@ -27,7 +37,7 @@
         <item>33</item>
         <item>34</item>
     </string-array>
-    <string-array name="twenty_seconds_array">
+    <string-array name="r_twenty_seconds_array">
         <item>OFF</item>
         <item>16</item>
         <item>17</item>
@@ -39,16 +49,16 @@
         <item>23</item>
         <item>24</item>
     </string-array>
-    <string-array name="fifteen_seconds_array">
+    <string-array name="r_ten_seconds_array">
         <item>OFF</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
         <item>11</item>
         <item>12</item>
         <item>13</item>
         <item>14</item>
-        <item>15</item>
-        <item>16</item>
-        <item>17</item>
-        <item>18</item>
-        <item>19</item>
     </string-array>
 </resources>

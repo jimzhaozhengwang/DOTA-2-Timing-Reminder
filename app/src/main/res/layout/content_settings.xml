@@ -36,7 +36,7 @@
         android:marqueeRepeatLimit="2"
         android:focusable="true"
         android:focusableInTouchMode="true"
-        app:values="@array/twenty_seconds_array"
+        app:values="@array/r_twenty_seconds_array"
         app:dividerSize="5dp"
         app:sideItems="@integer/twoSideItems"/>
 
@@ -65,7 +65,7 @@
         android:marqueeRepeatLimit="2"
         android:focusable="true"
         android:focusableInTouchMode="true"
-        app:values="@array/twenty_seconds_array"
+        app:values="@array/r_twenty_seconds_array"
         app:dividerSize="5dp"
         app:sideItems="@integer/twoSideItems"/>
 
@@ -94,7 +94,7 @@
         android:marqueeRepeatLimit="2"
         android:focusable="true"
         android:focusableInTouchMode="true"
-        app:values="@array/fifteen_seconds_array"
+        app:values="@array/r_ten_seconds_array"
         app:dividerSize="5dp"
         app:sideItems="@integer/twoSideItems"/>
 
@@ -123,7 +123,20 @@
         android:marqueeRepeatLimit="2"
         android:focusable="true"
         android:focusableInTouchMode="true"
-        app:values="@array/thirty_seconds_array"
+        app:values="@array/r_thirty_seconds_array"
         app:dividerSize="5dp"
         app:sideItems="@integer/twoSideItems"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/r_back"
+        android:id="@+id/back_button"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/day_night_picker"
+        android:layout_marginTop="10dp"
+        android:paddingTop="20dp"/>
+
+
+
 </RelativeLayout>

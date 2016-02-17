@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void setup(){
-        setTitle("Dota Timer & Reminder");
         second = 0;
         minute = 0;
         plus_minus_zero = "0";
