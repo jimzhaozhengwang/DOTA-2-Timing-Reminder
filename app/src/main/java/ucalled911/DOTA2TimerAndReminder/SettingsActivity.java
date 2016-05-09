@@ -13,10 +13,10 @@ import com.wefika.horizontalpicker.HorizontalPicker;
 
 public class SettingsActivity extends AppCompatActivity {
 
-    static String rune_time = "";
-    static String spawn_time = "";
-    static String stack_time = "";
-    static String day_night_time = "";
+    String rune_time = "";
+    String spawn_time = "";
+    String stack_time = "";
+    String day_night_time = "";
 
     String[] ten_seconds_array;
     String[] twenty_seconds_array;

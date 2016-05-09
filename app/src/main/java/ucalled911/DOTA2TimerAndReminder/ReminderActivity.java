@@ -16,11 +16,11 @@ import android.widget.ToggleButton;
 public class ReminderActivity extends AppCompatActivity {
 
     MainActivity access = new MainActivity();
-    public int second = access.getSecond();
-    public int minute = access.getMinute();
-    public String plus_minus_zero = access.getPlus_minus_zero();
-    public String plus = "+";
-    public String minus = "-";
+    int second = access.getSecond();
+    int minute = access.getMinute();
+    String plus_minus_zero = access.getPlus_minus_zero();
+    String plus = "+";
+    String minus = "-";
     long startTime = 0;
     MediaPlayer the_battle_begins_sound;
     MediaPlayer stack_sound;
