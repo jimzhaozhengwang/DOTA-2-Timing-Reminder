@@ -90,6 +90,7 @@ public class ReminderActivity extends AppCompatActivity {
         power_manager = (PowerManager) getSystemService(Context.POWER_SERVICE);
         wake_lock = power_manager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "Wake Lock Tag");
         wake_lock.acquire();
+        this.setTitle("DOTA 2 Timer & Reminder");
 
         main_activity = new Intent(ReminderActivity.this, MainActivity.class);
     }

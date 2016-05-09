@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         minute_picker_listener();
         start_button_listener();
         settings_button_listener();
+        this.setTitle("DOTA 2 Timer & Reminder");
     }
 
     public void second_picker_listener(){

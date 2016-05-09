@@ -50,7 +50,7 @@ public class SettingsActivity extends AppCompatActivity {
         spawn_picker_listener();
         day_night_picker_listener();
         back_button_listener();
-
+        this.setTitle("DOTA 2 Timer & Reminder");
         main_activity = new Intent(SettingsActivity.this, MainActivity.class);
     }
 
