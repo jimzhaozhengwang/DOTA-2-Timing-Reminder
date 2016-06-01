@@ -10,10 +10,10 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 public class MainActivity extends AppCompatActivity {
-    int second = 0;
-    int minute = 0;
-    String plus_minus_zero = "0";
-    RadioButton before_after_button;
+    private static int second = 0;
+    private static int minute = 0;
+    private static String plus_minus_zero = "0";
+    private RadioButton before_after_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

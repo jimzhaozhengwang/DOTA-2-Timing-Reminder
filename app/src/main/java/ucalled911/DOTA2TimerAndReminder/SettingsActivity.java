@@ -13,17 +13,17 @@ import com.wefika.horizontalpicker.HorizontalPicker;
 
 public class SettingsActivity extends AppCompatActivity {
 
-    String rune_time = "";
-    String spawn_time = "";
-    String stack_time = "";
-    String day_night_time = "";
+    private String rune_time = "";
+    private String spawn_time = "";
+    private String stack_time = "";
+    private String day_night_time = "";
 
-    String[] ten_seconds_array;
-    String[] twenty_seconds_array;
-    String[] thirty_seconds_array;
+    private String[] ten_seconds_array;
+    private String[] twenty_seconds_array;
+    private String[] thirty_seconds_array;
 
-    SharedPreferences shared_preferences;
-    Intent main_activity;
+    private SharedPreferences shared_preferences;
+    private Intent main_activity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

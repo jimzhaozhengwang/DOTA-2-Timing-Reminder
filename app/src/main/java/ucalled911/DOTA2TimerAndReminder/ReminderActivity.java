@@ -15,33 +15,32 @@ import android.widget.ToggleButton;
 
 public class ReminderActivity extends AppCompatActivity {
 
-    MainActivity access = new MainActivity();
-    int second = access.getSecond();
-    int minute = access.getMinute();
-    String plus_minus_zero = access.getPlus_minus_zero();
-    String plus = "+";
-    String minus = "-";
-    long startTime = 0;
-    MediaPlayer the_battle_begins_sound;
-    MediaPlayer stack_sound;
-    MediaPlayer rune_sound;
-    MediaPlayer day_sound;
-    MediaPlayer night_sound;
-    MediaPlayer spawn_sound;
+    private MainActivity access = new MainActivity();
+    private int second = access.getSecond();
+    private int minute = access.getMinute();
+    private String plus_minus_zero = access.getPlus_minus_zero();
+    private String plus = "+";
+    private String minus = "-";
+    private long startTime = 0;
+    private MediaPlayer the_battle_begins_sound;
+    private MediaPlayer stack_sound;
+    private MediaPlayer rune_sound;
+    private MediaPlayer day_sound;
+    private MediaPlayer night_sound;
+    private MediaPlayer spawn_sound;
 
-    String rune_time;
-    String stack_time;
-    String spawn_time;
-    String day_night_time;
-    SharedPreferences shared_preferences;
-    String off;
+    private String rune_time;
+    private String stack_time;
+    private String spawn_time;
+    private String day_night_time;
+    private SharedPreferences shared_preferences;
 
-    Intent main_activity;
-    PowerManager power_manager;
-    PowerManager.WakeLock wake_lock;
+    private Intent main_activity;
+    private PowerManager power_manager;
+    private PowerManager.WakeLock wake_lock;
 
-    Handler timerHandler = new Handler();
-    Runnable timerRunnable = new Runnable() {
+    private Handler timerHandler = new Handler();
+    private Runnable timerRunnable = new Runnable() {
         @Override
         public void run() {
             long millisecond = System.currentTimeMillis() - startTime;
@@ -69,7 +68,6 @@ public class ReminderActivity extends AppCompatActivity {
         stack_time = shared_preferences.getString("stack_time", "20");
         spawn_time = shared_preferences.getString("spawn_time", "15");
         day_night_time = shared_preferences.getString("day_night_time", "30");
-        off = getResources().getString(R.string.r_off);
 
         the_battle_begins_sound = MediaPlayer.create(this, R.raw.the_battle_begins);
         stack_sound = MediaPlayer.create(this, R.raw.stack);
@@ -219,7 +217,7 @@ public class ReminderActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        finish();
+        finish(); // calls onDestroy
         startActivity(main_activity);
     }
 
@@ -228,7 +226,7 @@ public class ReminderActivity extends AppCompatActivity {
         reset_button.setOnClickListener(
                 new Button.OnClickListener() {
                     public void onClick(View v) {
-                        finish();
+                        finish(); // calls onDestroy
                         startActivity(main_activity);
                     }
                 }
@@ -238,13 +236,13 @@ public class ReminderActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        timerHandler.removeCallbacks(timerRunnable);
         the_battle_begins_sound.release();
         stack_sound.release();
         rune_sound.release();
         day_sound.release();
         night_sound.release();
         spawn_sound.release();
-        timerHandler.removeCallbacks(timerRunnable);
         wake_lock.release();
     }
 }
