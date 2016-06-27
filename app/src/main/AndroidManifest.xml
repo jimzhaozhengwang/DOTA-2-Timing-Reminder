@@ -4,17 +4,16 @@
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
-    <!-- android:theme="@style/AppTheme"> -->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat">
+        android:supportsRtl="true">
 
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/TempTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -22,10 +21,12 @@
         </activity>
         <activity
             android:name=".ReminderActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/TempTheme"/>
         <activity
             android:name=".SettingsActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/TempTheme">
 
         </activity>
     </application>
