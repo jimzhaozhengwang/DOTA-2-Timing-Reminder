@@ -4,7 +4,6 @@
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
-
     <!-- android:theme="@style/AppTheme"> -->
     <application
         android:allowBackup="true"
