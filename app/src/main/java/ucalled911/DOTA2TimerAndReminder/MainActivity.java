@@ -3,6 +3,7 @@ package ucalled911.DOTA2TimerAndReminder;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.NumberPicker;
@@ -17,6 +18,9 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -31,7 +35,9 @@ public class MainActivity extends AppCompatActivity {
         minute_picker_listener();
         start_button_listener();
         settings_button_listener();
-        this.setTitle("DOTA 2 Timer & Reminder");
+        Toolbar tool_bar = (Toolbar) findViewById(R.id.tool_bar);
+        setSupportActionBar(tool_bar);
+        //this.setTitle("DOTA 2 Timer & Reminder");
     }
 
     public void second_picker_listener(){

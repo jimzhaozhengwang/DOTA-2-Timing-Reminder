@@ -10,6 +10,8 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="ucalled911.DOTA2TimerAndReminder.MainActivity">
 
+    <include android:id="@+id/tool_bar" layout="@layout/tool_bar"/>
+
     <NumberPicker
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -70,6 +72,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/r_minutes"
         android:id="@+id/minute_text"
+        android:layout_below="@id/tool_bar"
         android:layout_alignBaseline="@+id/seconds_text"
         android:layout_alignBottom="@+id/seconds_text"
         android:layout_alignRight="@+id/minute_picker"
@@ -81,6 +84,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/r_seconds"
         android:id="@+id/seconds_text"
+        android:layout_below="@id/tool_bar"
         android:layout_above="@+id/minute_picker"
         android:layout_alignLeft="@+id/second_picker"
         android:layout_alignStart="@+id/second_picker"
