@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.NumberPicker;
@@ -28,6 +30,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void setup(){
+        Toolbar tool_bar = (Toolbar) findViewById(R.id.tool_bar);
+        setSupportActionBar(tool_bar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        tool_bar.setLogo(R.mipmap.ic_launcher);
         second = 0;
         minute = 0;
         plus_minus_zero = "0";
@@ -35,9 +41,27 @@ public class MainActivity extends AppCompatActivity {
         minute_picker_listener();
         start_button_listener();
         settings_button_listener();
-        Toolbar tool_bar = (Toolbar) findViewById(R.id.tool_bar);
-        setSupportActionBar(tool_bar);
-        //this.setTitle("DOTA 2 Timer & Reminder");
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        // return super.onCreateOptionsMenu(menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.settings){
+            Intent settings_activity = new Intent(MainActivity.this, SettingsActivity.class);
+            finish();
+            startActivity(settings_activity);
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     public void second_picker_listener(){

@@ -62,7 +62,7 @@ public class ReminderActivity extends AppCompatActivity {
     }
 
     public void setup(){
-
+        
         shared_preferences = getSharedPreferences("user_settings", Context.MODE_PRIVATE);
         rune_time = shared_preferences.getString("rune_time", "20");
         stack_time = shared_preferences.getString("stack_time", "20");

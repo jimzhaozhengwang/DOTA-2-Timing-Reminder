@@ -16,36 +16,34 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/minute_picker"
-        android:layout_above="@+id/start_button"
+        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
     <NumberPicker
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/second_picker"
-        android:layout_alignParentTop="true"
+        android:layout_alignBottom="@+id/minute_picker"
         android:layout_alignRight="@+id/start_button"
-        android:layout_alignEnd="@+id/start_button"
-        android:layout_marginTop="109dp" />
+        android:layout_alignEnd="@+id/start_button" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/r_start"
         android:id="@+id/start_button"
-        android:layout_below="@+id/second_picker"
-        android:layout_toRightOf="@+id/minute_text"
-        android:layout_toEndOf="@+id/minute_text"
-        android:layout_marginTop="74dp" />
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/minute_picker"
+        android:layout_toEndOf="@+id/minute_picker"
+        android:layout_marginBottom="89dp" />
 
     <RadioGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/before_after_group"
-        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="158dp">
+        android:layout_alignParentStart="true">
 
         <RadioButton
             android:layout_width="wrap_content"
@@ -72,11 +70,10 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/r_minutes"
         android:id="@+id/minute_text"
-        android:layout_below="@id/tool_bar"
-        android:layout_alignBaseline="@+id/seconds_text"
-        android:layout_alignBottom="@+id/seconds_text"
+        android:layout_above="@+id/minute_picker"
         android:layout_alignRight="@+id/minute_picker"
-        android:layout_alignEnd="@+id/minute_picker" />
+        android:layout_alignEnd="@+id/minute_picker"
+        android:layout_marginBottom="22dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -84,11 +81,9 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/r_seconds"
         android:id="@+id/seconds_text"
-        android:layout_below="@id/tool_bar"
-        android:layout_above="@+id/minute_picker"
+        android:layout_alignTop="@+id/minute_text"
         android:layout_alignLeft="@+id/second_picker"
-        android:layout_alignStart="@+id/second_picker"
-        android:layout_marginBottom="28dp" />
+        android:layout_alignStart="@+id/second_picker" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -96,7 +91,7 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="@string/r_colon"
         android:id="@+id/colon"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="24dp"
         android:paddingLeft="9dp"
         android:layout_alignBottom="@+id/before_after_group"
         android:layout_toRightOf="@+id/minute_picker"

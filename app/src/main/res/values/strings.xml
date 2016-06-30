@@ -23,6 +23,7 @@
     <string name="r_set_to">is set to</string>
     <string name="r_seconds_before_event"> seconds before event</string>
     <string name="r_reminder">reminder</string>
+    <string name="r_information">information</string>
 
 
     <string-array name="r_thirty_seconds_array">

@@ -5,6 +5,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -34,6 +37,10 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     public void setup(){
+        Toolbar tool_bar = (Toolbar) findViewById(R.id.tool_bar);
+        setSupportActionBar(tool_bar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        tool_bar.setLogo(R.mipmap.ic_launcher);
         shared_preferences = getSharedPreferences("user_settings", Context.MODE_PRIVATE);
 
         rune_time = shared_preferences.getString("rune_time", "20");
@@ -50,8 +57,19 @@ public class SettingsActivity extends AppCompatActivity {
         spawn_picker_listener();
         day_night_picker_listener();
         back_button_listener();
-        this.setTitle("DOTA 2 Timer & Reminder");
         main_activity = new Intent(SettingsActivity.this, MainActivity.class);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_settings, menu);
+        //return super.onCreateOptionsMenu(menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return super.onOptionsItemSelected(item);
     }
 
     public void rune_picker_listener(){
