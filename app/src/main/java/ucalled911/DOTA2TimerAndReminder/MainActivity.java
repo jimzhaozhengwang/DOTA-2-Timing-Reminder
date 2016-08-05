@@ -26,11 +26,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        setup();
-    }
+        /*View v = getSupportActionBar().getCustomView();
+        Toolbar.LayoutParams lp = (Toolbar.LayoutParams) v.getLayoutParams();
+        lp.width = Toolbar.LayoutParams.MATCH_PARENT;
+        v.setLayoutParams(lp);*/
 
-    public void setup(){
         Toolbar tool_bar = (Toolbar) findViewById(R.id.tool_bar);
+        //tool_bar.setContentInsetsAbsolute(0,0);
         setSupportActionBar(tool_bar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         tool_bar.setLogo(R.mipmap.ic_launcher);
@@ -41,7 +43,9 @@ public class MainActivity extends AppCompatActivity {
         minute_picker_listener();
         start_button_listener();
         settings_button_listener();
+
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

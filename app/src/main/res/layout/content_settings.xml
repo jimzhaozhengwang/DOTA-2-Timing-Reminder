@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal='true'
         android:layout_below="@+id/rune_text"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/colorBlack"
         android:textSize="20sp"
         android:paddingTop="10dp"
         android:paddingBottom="16dp"
@@ -59,7 +59,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal='true'
         android:layout_below="@+id/stack_text"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/colorBlack"
         android:textSize="20sp"
         android:paddingTop="10dp"
         android:paddingBottom="16dp"
@@ -88,7 +88,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal='true'
         android:layout_below="@+id/spawn_text"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/colorBlack"
         android:textSize="20sp"
         android:paddingTop="10dp"
         android:paddingBottom="16dp"
@@ -117,7 +117,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal='true'
         android:layout_below="@+id/day_night_text"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/colorBlack"
         android:textSize="20sp"
         android:paddingTop="10dp"
         android:paddingBottom="16dp"
