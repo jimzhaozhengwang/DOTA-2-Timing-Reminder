@@ -21,18 +21,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /*View v = getSupportActionBar().getCustomView();
-        Toolbar.LayoutParams lp = (Toolbar.LayoutParams) v.getLayoutParams();
-        lp.width = Toolbar.LayoutParams.MATCH_PARENT;
-        v.setLayoutParams(lp);*/
-
         Toolbar tool_bar = (Toolbar) findViewById(R.id.tool_bar);
-        //tool_bar.setContentInsetsAbsolute(0,0);
         setSupportActionBar(tool_bar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         tool_bar.setLogo(R.mipmap.ic_launcher);

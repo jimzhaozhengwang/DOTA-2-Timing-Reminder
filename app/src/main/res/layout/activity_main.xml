@@ -4,13 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="ucalled911.DOTA2TimerAndReminder.MainActivity">
 
+
     <include android:id="@+id/tool_bar" layout="@layout/tool_bar"/>
+
+
 
     <NumberPicker
         android:layout_width="wrap_content"
@@ -32,10 +31,10 @@
         android:layout_height="wrap_content"
         android:text="@string/r_start"
         android:id="@+id/start_button"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/minute_picker"
         android:layout_toRightOf="@+id/minute_picker"
         android:layout_toEndOf="@+id/minute_picker"
-        android:layout_marginBottom="89dp" />
+        android:layout_marginTop="58dp" />
 
     <RadioGroup
         android:layout_width="wrap_content"
@@ -43,7 +42,9 @@
         android:id="@+id/before_after_group"
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginStart="30dp">
 
         <RadioButton
             android:layout_width="wrap_content"
@@ -103,7 +104,7 @@
         android:text="@string/r_settings"
         android:id="@+id/settings_button"
         android:layout_alignTop="@+id/start_button"
-        android:layout_toLeftOf="@+id/minute_text"
-        android:layout_toStartOf="@+id/minute_text" />
+        android:layout_toLeftOf="@+id/minute_picker"
+        android:layout_toStartOf="@+id/minute_picker" />
 
 </RelativeLayout>
