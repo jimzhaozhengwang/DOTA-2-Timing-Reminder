@@ -4,13 +4,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.wefika.horizontalpicker.HorizontalPicker;
 
@@ -27,6 +28,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     private SharedPreferences shared_preferences;
     private Intent main_activity;
+    private CoordinatorLayout coordinator_layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +41,9 @@ public class SettingsActivity extends AppCompatActivity {
     public void setup(){
         Toolbar tool_bar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(tool_bar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-        tool_bar.setLogo(R.mipmap.ic_launcher);
+        getSupportActionBar().setTitle("Settings");
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         shared_preferences = getSharedPreferences("user_settings", Context.MODE_PRIVATE);
 
         rune_time = shared_preferences.getString("rune_time", "20");
@@ -58,7 +61,9 @@ public class SettingsActivity extends AppCompatActivity {
         day_night_picker_listener();
         back_button_listener();
         main_activity = new Intent(SettingsActivity.this, MainActivity.class);
+        coordinator_layout = (CoordinatorLayout) findViewById(R.id.coordinatorLayout);
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -69,6 +74,15 @@ public class SettingsActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == android.R.id.home){
+            // for API 11 +
+            onBackPressed();
+            // API 16 +
+            // http://stackoverflow.com/questions/10108774/how-to-implement-the-android-actionbar-back-button
+            //NavUtils.navigateUpFromSameTask(this);
+            return true;
+        }
         return super.onOptionsItemSelected(item);
     }
 
@@ -85,7 +99,7 @@ public class SettingsActivity extends AppCompatActivity {
                 new HorizontalPicker.OnItemClicked() {
                     @Override
                     public void onItemClicked(int index) {
-                        toast_logic(twenty_seconds_array, index, rune);
+                        snackbar_logic(twenty_seconds_array, index, rune);
                     }
                 }
         );
@@ -93,7 +107,7 @@ public class SettingsActivity extends AppCompatActivity {
                 new HorizontalPicker.OnItemSelected() {
                     @Override
                     public void onItemSelected(int index) {
-                        toast_logic(twenty_seconds_array, index, rune);
+                        snackbar_logic(twenty_seconds_array, index, rune);
                     }
                 }
         );
@@ -113,7 +127,7 @@ public class SettingsActivity extends AppCompatActivity {
                 new HorizontalPicker.OnItemClicked() {
                     @Override
                     public void onItemClicked(int index) {
-                        toast_logic(twenty_seconds_array, index, stack);
+                        snackbar_logic(twenty_seconds_array, index, stack);
                     }
                 }
         );
@@ -121,7 +135,7 @@ public class SettingsActivity extends AppCompatActivity {
                 new HorizontalPicker.OnItemSelected() {
                     @Override
                     public void onItemSelected(int index) {
-                        toast_logic(twenty_seconds_array, index, stack);
+                        snackbar_logic(twenty_seconds_array, index, stack);
                     }
                 }
         );
@@ -141,7 +155,7 @@ public class SettingsActivity extends AppCompatActivity {
                 new HorizontalPicker.OnItemClicked() {
                     @Override
                     public void onItemClicked(int index) {
-                        toast_logic(ten_seconds_array, index, spawn);
+                        snackbar_logic(ten_seconds_array, index, spawn);
                     }
                 }
         );
@@ -149,7 +163,7 @@ public class SettingsActivity extends AppCompatActivity {
                 new HorizontalPicker.OnItemSelected() {
                     @Override
                     public void onItemSelected(int index) {
-                        toast_logic(ten_seconds_array, index, spawn);
+                        snackbar_logic(ten_seconds_array, index, spawn);
                     }
                 }
         );
@@ -169,7 +183,7 @@ public class SettingsActivity extends AppCompatActivity {
                 new HorizontalPicker.OnItemClicked() {
                     @Override
                     public void onItemClicked(int index) {
-                        toast_logic(thirty_seconds_array, index, day_night);
+                        snackbar_logic(thirty_seconds_array, index, day_night);
                     }
                 }
         );
@@ -177,13 +191,13 @@ public class SettingsActivity extends AppCompatActivity {
                 new HorizontalPicker.OnItemSelected() {
                     @Override
                     public void onItemSelected(int index) {
-                        toast_logic(thirty_seconds_array, index, day_night);
+                        snackbar_logic(thirty_seconds_array, index, day_night);
                     }
                 }
         );
     }
 
-    public void toast_logic(String [] array_type, int index, String reminder_type){
+    public void snackbar_logic(String [] array_type, int index, String reminder_type){
         final String off = getResources().getString(R.string.r_off);
         final String reminder = getResources().getString(R.string.r_reminder);
         final String disabled = getResources().getString(R.string.r_disabled);
@@ -198,10 +212,10 @@ public class SettingsActivity extends AppCompatActivity {
 
         if (array_type[index].equals(off)) {
             reminder_time = off;
-            Toast.makeText(SettingsActivity.this, reminder_type + " " + reminder + " " + disabled, Toast.LENGTH_SHORT).show();
+            Snackbar.make(coordinator_layout, reminder_type + " " + reminder + " " + disabled, Snackbar.LENGTH_SHORT).show();
         } else {
             reminder_time = array_type[index];
-            Toast.makeText(SettingsActivity.this, reminder_type + " " + reminder + " " + set_to + " " + reminder_time + " " + seconds_before_event, Toast.LENGTH_SHORT).show();
+            Snackbar.make(coordinator_layout, reminder_type + " " + reminder + " " + set_to + " " + reminder_time + " " + seconds_before_event, Snackbar.LENGTH_SHORT).show();
         }
         SharedPreferences.Editor editor = shared_preferences.edit();
         if (reminder_type.equals(rune)) {
