@@ -22,19 +22,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/second_picker"
-        android:layout_alignBottom="@+id/minute_picker"
-        android:layout_alignRight="@+id/start_button"
-        android:layout_alignEnd="@+id/start_button" />
+
+        android:layout_marginLeft="29dp"
+        android:layout_marginStart="29dp"
+        android:layout_above="@+id/start_button"
+        android:layout_toRightOf="@+id/start_button"
+        android:layout_toEndOf="@+id/start_button" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/r_start"
         android:id="@+id/start_button"
+        android:layout_marginTop="60dp"
         android:layout_below="@+id/minute_picker"
-        android:layout_toRightOf="@+id/minute_picker"
-        android:layout_toEndOf="@+id/minute_picker"
-        android:layout_marginTop="58dp" />
+        android:layout_centerHorizontal="true" />
 
     <RadioGroup
         android:layout_width="wrap_content"
@@ -71,10 +73,10 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/r_minutes"
         android:id="@+id/minute_text"
+        android:layout_marginBottom="25dp"
         android:layout_above="@+id/minute_picker"
-        android:layout_alignRight="@+id/minute_picker"
-        android:layout_alignEnd="@+id/minute_picker"
-        android:layout_marginBottom="22dp" />
+        android:layout_alignLeft="@+id/minute_picker"
+        android:layout_alignStart="@+id/minute_picker" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -93,18 +95,9 @@
         android:text="@string/r_colon"
         android:id="@+id/colon"
         android:layout_marginBottom="24dp"
-        android:paddingLeft="9dp"
+        android:paddingLeft="18dp"
         android:layout_alignBottom="@+id/before_after_group"
         android:layout_toRightOf="@+id/minute_picker"
         android:layout_toEndOf="@+id/minute_picker" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/r_settings"
-        android:id="@+id/settings_button"
-        android:layout_alignTop="@+id/start_button"
-        android:layout_toLeftOf="@+id/minute_picker"
-        android:layout_toStartOf="@+id/minute_picker" />
 
 </RelativeLayout>

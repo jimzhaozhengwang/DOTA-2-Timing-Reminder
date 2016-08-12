@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
         second_picker_listener();
         minute_picker_listener();
         start_button_listener();
-        settings_button_listener();
 
     }
 
@@ -112,19 +111,6 @@ public class MainActivity extends AppCompatActivity {
                         Intent reminder_activity = new Intent(MainActivity.this, ReminderActivity.class);
                         finish();
                         startActivity(reminder_activity);
-                    }
-                }
-        );
-    }
-
-    public void settings_button_listener(){
-        Button settings_button = (Button) findViewById(R.id.settings_button);
-        settings_button.setOnClickListener(
-                new Button.OnClickListener(){
-                    public void onClick(View v){
-                        Intent settings_activity = new Intent(MainActivity.this, SettingsActivity.class);
-                        finish();
-                        startActivity(settings_activity);
                     }
                 }
         );

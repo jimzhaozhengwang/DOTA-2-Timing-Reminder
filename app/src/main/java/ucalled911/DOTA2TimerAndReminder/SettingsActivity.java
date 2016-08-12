@@ -59,7 +59,6 @@ public class SettingsActivity extends AppCompatActivity {
         stack_picker_listener();
         spawn_picker_listener();
         day_night_picker_listener();
-        back_button_listener();
         main_activity = new Intent(SettingsActivity.this, MainActivity.class);
         coordinator_layout = (CoordinatorLayout) findViewById(R.id.coordinatorLayout);
     }
@@ -232,18 +231,6 @@ public class SettingsActivity extends AppCompatActivity {
             editor.putString("day_night_time", day_night_time);
         }
         editor.apply();
-    }
-
-    public void back_button_listener(){
-        Button back_button = (Button) findViewById(R.id.back_button);
-        back_button.setOnClickListener(
-                new Button.OnClickListener(){
-                    public void onClick(View v){
-                        finish();
-                        startActivity(main_activity);
-                    }
-                }
-        );
     }
 
     @Override
