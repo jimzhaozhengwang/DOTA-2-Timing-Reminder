@@ -39,8 +39,8 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     public void setup(){
-        Toolbar tool_bar = (Toolbar) findViewById(R.id.tool_bar);
-        setSupportActionBar(tool_bar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Settings");
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

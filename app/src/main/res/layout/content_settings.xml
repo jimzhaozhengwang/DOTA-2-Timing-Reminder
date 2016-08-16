@@ -8,7 +8,7 @@
     tools:context="ucalled911.DOTA2TimerAndReminder.SettingsActivity"
     tools:showIn="@layout/activity_settings">
 
-    <include android:id="@+id/tool_bar" layout="@layout/tool_bar"/>
+    <include android:id="@+id/toolbar" layout="@layout/toolbar"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -19,7 +19,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="1dp"
         android:layout_centerHorizontal='true'
-        android:layout_below="@id/tool_bar"/>
+        android:layout_below="@id/toolbar"/>
 
     <com.wefika.horizontalpicker.HorizontalPicker
         android:id="@+id/rune_picker"

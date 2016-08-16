@@ -7,7 +7,7 @@
     tools:context="ucalled911.DOTA2TimerAndReminder.MainActivity">
 
 
-    <include android:id="@+id/tool_bar" layout="@layout/tool_bar"/>
+    <include android:id="@+id/toolbar" layout="@layout/toolbar"/>
 
 
 
@@ -95,7 +95,7 @@
         android:text="@string/r_colon"
         android:id="@+id/colon"
         android:layout_marginBottom="24dp"
-        android:paddingLeft="18dp"
+        android:layout_marginLeft="18dp"
         android:layout_alignBottom="@+id/before_after_group"
         android:layout_toRightOf="@+id/minute_picker"
         android:layout_toEndOf="@+id/minute_picker" />
