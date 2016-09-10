@@ -63,10 +63,10 @@ public class ReminderActivity extends AppCompatActivity {
 
     public void setup(){
         
-        shared_preferences = getSharedPreferences("user_settings", Context.MODE_PRIVATE);
+        shared_preferences = getSharedPreferences(getPackageName() + ".user_settings", Context.MODE_PRIVATE);
         rune_time = shared_preferences.getString("rune_time", "20");
         stack_time = shared_preferences.getString("stack_time", "20");
-        spawn_time = shared_preferences.getString("spawn_time", "15");
+        spawn_time = shared_preferences.getString("spawn_time", "10");
         day_night_time = shared_preferences.getString("day_night_time", "30");
 
         the_battle_begins_sound = MediaPlayer.create(this, R.raw.the_battle_begins);

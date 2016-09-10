@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
         second_picker_listener();
         minute_picker_listener();
         start_button_listener();
-
     }
 
 

@@ -44,7 +44,7 @@ public class SettingsActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Settings");
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        shared_preferences = getSharedPreferences("user_settings", Context.MODE_PRIVATE);
+        shared_preferences = getSharedPreferences(getPackageName() + ".user_settings", Context.MODE_PRIVATE);
 
         rune_time = shared_preferences.getString("rune_time", "20");
         stack_time = shared_preferences.getString("stack_time", "20");
