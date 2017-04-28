@@ -68,10 +68,10 @@ public class ReminderActivity extends AppCompatActivity {
     }
 
     public void setup() {
-        if (access.getPlus_minus_zero().equals("+")){
+        if (access.getPlus_minus_zero().equals("+")) {
             positive_negative = 1;
             plus_minus = "+";
-        }else{
+        } else {
             positive_negative = 0;
             plus_minus = "-";
         }
@@ -88,17 +88,17 @@ public class ReminderActivity extends AppCompatActivity {
         night_sound = MediaPlayer.create(this, R.raw.night);
         spawn_sound = MediaPlayer.create(this, R.raw.spawn);
 
-        minus_button_listener();
-        plus_button_listener();
-        play_pause_button_listener();
-        reset_button_listener();
-
         power_manager = (PowerManager) getSystemService(Context.POWER_SERVICE);
         wake_lock = power_manager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "Wake Lock Tag");
         wake_lock.acquire();
         this.setTitle("DOTA 2 Timer & Reminder");
 
         main_activity = new Intent(ReminderActivity.this, MainActivity.class);
+
+        minus_button_listener();
+        plus_button_listener();
+        play_pause_button_listener();
+        reset_button_listener();
 
         display_time();
         startTime = System.currentTimeMillis();
@@ -185,7 +185,7 @@ public class ReminderActivity extends AppCompatActivity {
                 second = 59;
                 minute--;
             } else {
-                if (minute == 0 && second == 1){
+                if (minute == 0 && second == 1) {
                     plus_minus = "+";
                 }
                 second--;
@@ -195,6 +195,7 @@ public class ReminderActivity extends AppCompatActivity {
     }
 
     public void display_time() {
+        rune_sound.start();
         String time;
         if (minute == 0 && second == 0) {
             time = String.format("%02d : %02d", minute, second);
@@ -206,6 +207,9 @@ public class ReminderActivity extends AppCompatActivity {
                 if (rune_time != -1 && minute == 0 && second == rune_time) {
                     rune_sound.start();
                 }
+                if (spawn_time != -1 && minute == 0 && second == spawn_time) {
+                    spawn_sound.start();
+                }
             } else { // positive_negative == 1
                 if (rune_time != -1 && minute % 2 != 0 && second == 60 - rune_time) {
                     rune_sound.start();
@@ -216,11 +220,11 @@ public class ReminderActivity extends AppCompatActivity {
                 if (spawn_time != -1 && (second == 30 - spawn_time || second == 60 - spawn_time)) {
                     spawn_sound.start();
                 }
-                if (day_night_time != -1) { //21
-                    if (minute != 0 && minute % 7 == 0 && second == 60 - day_night_time) {
+                if (day_night_time != -1) {
+                    if (minute >= 7 && (minute - 7) % 8 == 0 && second == 60 - day_night_time) { //7 + 8n
                         day_sound.start();
                     }
-                    if (minute != 0 && minute % 3 == 0 && second == 60 - day_night_time) {
+                    if (minute >= 3 && (minute - 3) % 8 == 0 && second == 60 - day_night_time) { // 3 + 8n
                         night_sound.start();
                     }
                 }
@@ -232,8 +236,32 @@ public class ReminderActivity extends AppCompatActivity {
         time_text.setText(time);
     }
 
+    public void myFinished() {
+        final String pause = getResources().getString(R.string.r_pause);
+        final ToggleButton play_pause_button = (ToggleButton) findViewById(R.id.play_pause_button);
+        if (play_pause_button.getText().equals(pause)) {
+            play_pause_button.performClick();
+        }
+        timerHandler.removeCallbacksAndMessages(null);
+        spawn_sound.stop();
+        stack_sound.stop();
+        rune_sound.stop();
+        day_sound.stop();
+        night_sound.stop();
+        the_battle_begins_sound.stop();
+
+        spawn_sound.release();
+        stack_sound.release();
+        rune_sound.release();
+        day_sound.release();
+        night_sound.release();
+        the_battle_begins_sound.release();
+        wake_lock.release();
+    }
+
     @Override
     public void onBackPressed() {
+        myFinished();
         super.onBackPressed();
         finish(); // calls onDestroy
         startActivity(main_activity);
@@ -244,6 +272,7 @@ public class ReminderActivity extends AppCompatActivity {
         reset_button.setOnClickListener(
                 new Button.OnClickListener() {
                     public void onClick(View v) {
+                        myFinished();
                         finish(); // calls onDestroy
                         startActivity(main_activity);
                     }
@@ -251,16 +280,17 @@ public class ReminderActivity extends AppCompatActivity {
         );
     }
 
+    // leave the audio running while in background
+    /*
+    @Override
+    protected void onPause() {
+        final ToggleButton play_pause_button = (ToggleButton) findViewById(R.id.play_pause_button);
+        play_pause_button.performClick();
+        super.onPause();
+    }
+    */
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        timerHandler.removeCallbacks(timerRunnable);
-        the_battle_begins_sound.release();
-        stack_sound.release();
-        rune_sound.release();
-        day_sound.release();
-        night_sound.release();
-        spawn_sound.release();
-        wake_lock.release();
     }
 }
