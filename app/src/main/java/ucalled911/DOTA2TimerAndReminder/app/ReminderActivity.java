@@ -1,4 +1,4 @@
-package ucalled911.DOTA2TimerAndReminder;
+package ucalled911.DOTA2TimerAndReminder.app;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,6 +12,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.ToggleButton;
+
+import ucalled911.DOTA2TimerAndReminder.R;
 
 public class ReminderActivity extends AppCompatActivity {
 
@@ -195,7 +197,6 @@ public class ReminderActivity extends AppCompatActivity {
     }
 
     public void display_time() {
-        rune_sound.start();
         String time;
         if (minute == 0 && second == 0) {
             time = String.format("%02d : %02d", minute, second);

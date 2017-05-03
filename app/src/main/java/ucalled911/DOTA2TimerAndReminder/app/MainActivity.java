@@ -1,6 +1,7 @@
-package ucalled911.DOTA2TimerAndReminder;
+package ucalled911.DOTA2TimerAndReminder.app;
 
 import android.content.Intent;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -12,28 +13,43 @@ import android.widget.NumberPicker;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import ucalled911.DOTA2TimerAndReminder.R;
+
+
 public class MainActivity extends AppCompatActivity {
     private static int second = 0;
     private static int minute = 0;
     private static String plus_minus_zero = "0";
     private RadioButton before_after_button;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-        toolbar.setLogo(R.mipmap.ic_launcher);
+        setUpToolbar();
+        setUpDrawer();
         second = 0;
         minute = 0;
         plus_minus_zero = "0";
         second_picker_listener();
         minute_picker_listener();
         start_button_listener();
+    }
+
+    private void setUpDrawer(){
+        NavigationDrawerFragment drawerFragment = (NavigationDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.nav_drwr_fragment);
+        DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawerFragment.setUpDrawer(R.id.nav_drwr_fragment, drawerLayout, toolbar);
+    }
+
+    private void setUpToolbar(){
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        // set title not working
+        //getSupportActionBar().setDisplayShowTitleEnabled(false);
+        //toolbar.setLogo(R.mipmap.ic_launcher);
     }
 
 
@@ -44,15 +60,19 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    public boolean go_to_settings(){
+        Intent settings_activity = new Intent(MainActivity.this, SettingsActivity.class);
+        finish();
+        startActivity(settings_activity);
+        return true;
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
         if (id == R.id.settings){
-            Intent settings_activity = new Intent(MainActivity.this, SettingsActivity.class);
-            finish();
-            startActivity(settings_activity);
-            return true;
+            go_to_settings();
         }
 
         return super.onOptionsItemSelected(item);

@@ -12,7 +12,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".MainActivity"
+            android:name=".app.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,14 +20,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ReminderActivity"
+            android:name=".app.ReminderActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".SettingsActivity"
+            android:name=".app.SettingsActivity"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="ucalled911.DOTA2TimerAndReminder.MainActivity" />
+                android:value="ucalled911.DOTA2TimerAndReminder.app.MainActivity" />
         </activity>
     </application>
 </manifest>

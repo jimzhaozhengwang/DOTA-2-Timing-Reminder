@@ -1,4 +1,4 @@
-package ucalled911.DOTA2TimerAndReminder;
+package ucalled911.DOTA2TimerAndReminder.app;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,10 +10,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 
 import com.wefika.horizontalpicker.HorizontalPicker;
+
+import ucalled911.DOTA2TimerAndReminder.R;
 
 public class SettingsActivity extends AppCompatActivity {
 
