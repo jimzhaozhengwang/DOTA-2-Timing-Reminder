@@ -102,9 +102,9 @@ public class ReminderActivity extends AppCompatActivity {
         play_pause_button_listener();
         reset_button_listener();
 
-        display_time();
         startTime = System.currentTimeMillis();
         timerHandler.postDelayed(timerRunnable, 0);
+        display_time();
     }
 
     public void minus_button_listener() {
@@ -187,9 +187,6 @@ public class ReminderActivity extends AppCompatActivity {
                 second = 59;
                 minute--;
             } else {
-                if (minute == 0 && second == 1) {
-                    plus_minus = "+";
-                }
                 second--;
             }
         }
@@ -198,10 +195,11 @@ public class ReminderActivity extends AppCompatActivity {
 
     public void display_time() {
         String time;
-        if (minute == 0 && second == 0) {
+        if (minute == 0 && second == 0) { // there are actually 2 0:00's TODO https://www.reddit.com/r/DotA2/comments/38pksb/recently_i_learned_after_over_18k_hours_of_dota_2/
             time = String.format("%02d : %02d", minute, second);
-            the_battle_begins_sound.start();
             positive_negative = 1;
+            plus_minus = "+";
+            the_battle_begins_sound.start();
         } else {
             time = String.format(plus_minus + " %02d : %02d", minute, second);
             if (positive_negative == 0) {

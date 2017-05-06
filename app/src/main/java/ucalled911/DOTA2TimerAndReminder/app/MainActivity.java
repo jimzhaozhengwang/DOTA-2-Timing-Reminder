@@ -83,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
         second_picker.setMaxValue(59);
         second_picker.setMinValue(0);
         second_picker.setWrapSelectorWheel(true);
+        second_picker.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
 
         second_picker.setOnValueChangedListener(
                 new NumberPicker.OnValueChangeListener() {
@@ -99,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
         minute_picker.setMaxValue(99);
         minute_picker.setMinValue(0);
         minute_picker.setWrapSelectorWheel(true);
+        minute_picker.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
 
         minute_picker.setOnValueChangedListener(
                 new NumberPicker.OnValueChangeListener() {
