@@ -195,7 +195,7 @@ public class ReminderActivity extends AppCompatActivity {
 
     public void display_time() {
         String time;
-        if (minute == 0 && second == 0) { // there are actually 2 0:00's TODO https://www.reddit.com/r/DotA2/comments/38pksb/recently_i_learned_after_over_18k_hours_of_dota_2/
+        if (minute == 0 && second == 0) {
             time = String.format("%02d : %02d", minute, second);
             positive_negative = 1;
             plus_minus = "+";

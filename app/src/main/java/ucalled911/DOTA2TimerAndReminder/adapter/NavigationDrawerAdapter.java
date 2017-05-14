@@ -44,13 +44,15 @@ public class NavigationDrawerAdapter extends RecyclerView.Adapter<NavigationDraw
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (holder.getAdapterPosition() == 1){ // settings
-                    ((MainActivity) context).go_to_settings(); // from http://stackoverflow.com/questions/12142255/call-activity-method-from-adapter
+                if (holder.getAdapterPosition() == 0){ // information
+                    ((MainActivity) context).go_to_information();
+
+                    // from http://stackoverflow.com/questions/12142255/call-activity-method-from-adapter
                     // in the future, see if there are other faster alternatives
+
+                }else if (holder.getAdapterPosition() == 1){ // settings
+                    ((MainActivity) context).go_to_settings();
                 }
-
-
-              //  Toast.makeText(context, String.valueOf(holder.getAdapterPosition()), Toast.LENGTH_SHORT).show();
             }
         });
     }

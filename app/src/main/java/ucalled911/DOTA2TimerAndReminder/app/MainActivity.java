@@ -67,11 +67,19 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    public boolean go_to_information(){
+        Intent information_activity = new Intent(MainActivity.this, InformationActivity.class);
+        finish();
+        startActivity(information_activity);
+        return true;
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-
-        if (id == R.id.settings){
+        if (id == R.id.information){
+            go_to_information();
+        }else if (id == R.id.settings){
             go_to_settings();
         }
 

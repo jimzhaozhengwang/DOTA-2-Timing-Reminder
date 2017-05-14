@@ -63,14 +63,6 @@ public class SettingsActivity extends AppCompatActivity {
         coordinator_layout = (CoordinatorLayout) findViewById(R.id.coordinatorLayout);
     }
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_settings, menu);
-        //return super.onCreateOptionsMenu(menu);
-        return true;
-    }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();

@@ -21,9 +21,20 @@
         </activity>
         <activity
             android:name=".app.ReminderActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ucalled911.DOTA2TimerAndReminder.app.MainActivity" />
+        </activity>
         <activity
             android:name=".app.SettingsActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ucalled911.DOTA2TimerAndReminder.app.MainActivity" />
+        </activity>
+        <activity
+            android:name=".app.InformationActivity"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
