@@ -4,7 +4,7 @@ Event reminder for DOTA 2 players.
 
 This app can remind the players of the following:
    - Rune Spawning
-   - Neutral Creep Spawning
+   - Lane Creep/Neutral Creep Spawning
    - Day/Night Changes
 
 
