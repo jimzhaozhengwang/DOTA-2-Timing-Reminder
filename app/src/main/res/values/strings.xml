@@ -27,6 +27,11 @@
     <string name="r_open">Open</string>
     <string name="r_close">Close</string>
 
+    <string name="r_rune_description">Runes are special boosters that spawn on the game map. They come in two categories. Bounty Runes can be picked up for extra gold and experience, while Power-up Runes grant heroes a variety of buffs and effects for a short period of time. Bounty Runes spawn at 0:00 on the game clock, and every two minutes after that. Power-up Runes spawn at 2:00 on the game clock, and every two minutes after that.</string>
+    <string name="r_stack_description">Creep Stacking is the process of drawing neutral creeps away from their camps in order to increase the number of units in an area. To stack a camp, you can either attack a unit in the camp or simply walk close to it. The neutral creeps will then attempt to chase you for a few seconds before returning to their initial position. Camps can be stacked at the 54 second mark.</string>
+    <string name="r_spawn_description">Lane creep spawns for each faction at each of their barracks. Lane creeps spawn the first time as the game timer reaches 00:00. After that, they spawn every 30 seconds. Neutral creeps appear in small camps scattered in the jungle on both sides of the map. Neutral creeps will spawn in the first 30 seconds of the game and at every minute thereafter. So 0:30, 1:00, 2:00, 3:00 etc.</string>
+    <string name="r_day_night_description">Each day in Dota 2 is 8 minutes long, divided evenly between daytime and nighttime. Dawn starts at 0:00, the first night begins at 4:00, the second day starts at 8:00, and so on. At night, the map is darker and most heroes experience reduced vision. Additionally, some heroes have their abilities modified according to the time of day.</string>
+
     <string-array name="r_thirty_seconds_array">
         <item>OFF</item>
         <item>26</item>

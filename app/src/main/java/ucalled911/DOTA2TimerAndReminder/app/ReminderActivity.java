@@ -213,7 +213,7 @@ public class ReminderActivity extends AppCompatActivity {
                 if (rune_time != -1 && minute % 2 != 0 && second == 60 - rune_time) {
                     rune_sound.start();
                 }
-                if (stack_time != -1 && minute % 2 == 0 && second == 54 - stack_time) {
+                if (stack_time != -1 && second == 54 - stack_time) {
                     stack_sound.start();
                 }
                 if (spawn_time != -1 && (second == 30 - spawn_time || second == 60 - spawn_time)) {
