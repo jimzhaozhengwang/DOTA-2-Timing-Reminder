@@ -1,9 +1,11 @@
 # DOTA-2-Timer-Reminder
+Material Design Android event reminder app for DOTA 2 Players.
 
-Event reminder for DOTA 2 players.
+https://play.google.com/store/apps/details?id=ucalled911.DOTA2TimerAndReminder
 
 This app can remind the players of the following:
    - Rune Spawning
+   - Neutral Creep Stacking
    - Lane Creep/Neutral Creep Spawning
    - Day/Night Changes
 
@@ -16,7 +18,7 @@ This app provides the player with full customization of its features including:
    - Reminder Timing
    - Audio Toggle
 
-https://play.google.com/store/apps/details?id=ucalled911.DOTA2TimerAndReminder
+
 
 
 Programmed in Java using Android Studio
