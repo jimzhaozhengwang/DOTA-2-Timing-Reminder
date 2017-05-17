@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Dota Timer Reminder</string>
+    <string name="app_name">Dota Timing Reminder</string>
     <string name="r_start">Start</string>
     <string name="r_plus">+</string>
     <string name="r_minus">-</string>
