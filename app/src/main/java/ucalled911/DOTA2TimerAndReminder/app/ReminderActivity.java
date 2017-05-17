@@ -8,6 +8,8 @@ import android.os.Handler;
 import android.os.PowerManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -38,6 +40,7 @@ public class ReminderActivity extends AppCompatActivity {
     private Intent main_activity;
     private PowerManager power_manager;
     private PowerManager.WakeLock wake_lock;
+    private Toolbar toolbar;
 
     private Handler timerHandler = new Handler();
     private Runnable timerRunnable = new Runnable() {
@@ -69,6 +72,14 @@ public class ReminderActivity extends AppCompatActivity {
         }
     }
 
+
+    private void setupToolbar(){
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
     public void setup() {
         if (access.getPlus_minus_zero().equals("+")) {
             positive_negative = 1;
@@ -93,7 +104,9 @@ public class ReminderActivity extends AppCompatActivity {
         power_manager = (PowerManager) getSystemService(Context.POWER_SERVICE);
         wake_lock = power_manager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "Wake Lock Tag");
         wake_lock.acquire();
-        this.setTitle("DOTA 2 Timer & Reminder");
+
+        setupToolbar();
+
 
         main_activity = new Intent(ReminderActivity.this, MainActivity.class);
 
@@ -288,6 +301,22 @@ public class ReminderActivity extends AppCompatActivity {
         super.onPause();
     }
     */
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == android.R.id.home){
+            // for API 11 +
+            onBackPressed();
+            // API 16 +
+            // http://stackoverflow.com/questions/10108774/how-to-implement-the-android-actionbar-back-button
+            //NavUtils.navigateUpFromSameTask(this);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
