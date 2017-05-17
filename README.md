@@ -19,8 +19,11 @@ This app provides the player with full customization of its features including:
    - Audio Toggle
 
 
-Screenshots: 
-(screenshots/Main.png)
+Screenshots:
+![](/screenshots/Main.png?raw=true "")
+![](/screenshots/Information.png?raw=true "")
+![](/screenshots/Settings.png?raw=true "")
+![](/screenshots/Reminder.png?raw=true "")
 
 
 Programmed in Java using Android Studio
