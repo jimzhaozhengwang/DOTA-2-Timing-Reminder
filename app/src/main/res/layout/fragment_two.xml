@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/r_stack_description"
-        android:textSize="28sp"
+        android:textSize="22sp"
         android:padding="5dp"/>
 
 </RelativeLayout>
