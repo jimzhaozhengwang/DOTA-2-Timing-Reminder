@@ -1,4 +1,4 @@
-# DOTA-2-Timer-Reminder
+![](ic_banner_v2.png?raw=true "")
 Material Design Android event reminder app for DOTA 2 Players.
 
 https://play.google.com/store/apps/details?id=ucalled911.DOTA2TimerAndReminder
@@ -19,6 +19,11 @@ This app provides the player with full customization of its features including:
    - Audio Toggle
 
 
+Screenshots:
+![](/screenshots/Main.png?raw=true "")
+![](/screenshots/Information.png?raw=true "")
+![](/screenshots/Settings.png?raw=true "")
+![](/screenshots/Reminder.png?raw=true "")
 
 
 Programmed in Java using Android Studio
