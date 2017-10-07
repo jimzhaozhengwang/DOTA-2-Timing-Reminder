@@ -3,64 +3,60 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     tools:context="ucalled911.DOTA2TimerAndReminder.app.ReminderActivity">
 
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar" />
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/plus_button"
-        android:text="@string/r_plus"
-        android:layout_alignTop="@+id/minus_button"
-        android:layout_alignLeft="@+id/play_pause_button"
-        android:layout_alignStart="@+id/play_pause_button"
-        android:layout_marginLeft="63dp"
-        android:layout_marginStart="63dp" />
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/r_minus"
-        android:id="@+id/minus_button"
-        android:layout_marginBottom="49dp"
-        android:layout_above="@+id/play_pause_button"
-        android:layout_alignRight="@+id/play_pause_button"
-        android:layout_alignEnd="@+id/play_pause_button"
-        android:layout_marginRight="66dp"
-        android:layout_marginEnd="66dp" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/r_new_game"
-        android:id="@+id/reset_button"
-        android:layout_marginTop="54dp"
-        android:layout_below="@+id/play_pause_button"
-        android:layout_centerHorizontal="true" />
-
-    <ToggleButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/play_pause_button"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:checked="false"
-        android:clickable="false" />
-
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Large Text"
         android:id="@+id/time_text"
-        android:layout_marginBottom="24dp"
-        android:layout_above="@+id/plus_button"
-        android:layout_centerHorizontal="true" />
+        android:gravity="center"
+        android:textSize="70sp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/toolbar" />
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorLightBlue50"
+    android:gravity="center"
+    android:layout_alignParentBottom="true">
+
+    <ImageButton
+        android:id="@+id/rewind_button"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:layout_margin="15dp"
+        android:background="@color/colorLightBlue50"
+        android:src="@mipmap/ic_fast_rewind"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/play_pause_button"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="5"
+        android:layout_gravity="center"
+        android:layout_margin="15dp"
+        android:src="@mipmap/ic_pause" />
+
+
+    <ImageButton
+        android:id="@+id/forward_button"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:layout_margin="15dp"
+        android:background="@color/colorLightBlue50"
+        android:src="@mipmap/ic_fast_forward"/>
+</LinearLayout>
 
 </RelativeLayout>

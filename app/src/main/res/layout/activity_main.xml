@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
@@ -12,11 +11,36 @@
         android:layout_height="match_parent"
         tools:context="ucalled911.DOTA2TimerAndReminder.app.MainActivity">
 
+        <RadioGroup
+            android:id="@+id/before_after_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginStart="30dp">
+
+            <RadioButton
+                android:id="@+id/before_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/r_before"
+                android:layout_marginBottom="15dp"/>
+
+            <RadioButton
+                android:id="@+id/after_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/r_after" />
+
+        </RadioGroup>
 
         <include
             android:id="@+id/toolbar"
             layout="@layout/toolbar" />
-
 
         <NumberPicker
             android:id="@+id/minute_picker"
@@ -35,50 +59,6 @@
             android:layout_marginStart="22dp"
             android:layout_toEndOf="@+id/colon"
             android:layout_toRightOf="@+id/colon" />
-
-        <android.support.design.widget.CoordinatorLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/fab"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_gravity="bottom|center"
-                android:layout_margin="16dp"
-                android:src="@mipmap/ic_play" />
-
-        </android.support.design.widget.CoordinatorLayout>
-
-        <RadioGroup
-            android:id="@+id/before_after_group"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="30dp"
-            android:layout_marginStart="30dp">
-
-            <RadioButton
-                android:id="@+id/before_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="false"
-                android:text="@string/r_before" />
-
-            <RadioButton
-                android:id="@+id/after_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_above="@+id/before_after_group"
-                android:layout_alignLeft="@+id/before_after_group"
-                android:layout_alignStart="@+id/before_after_group"
-                android:checked="true"
-                android:text="@string/r_after" />
-
-        </RadioGroup>
 
         <TextView
             android:id="@+id/minute_text"
@@ -112,6 +92,21 @@
             android:layout_toRightOf="@+id/minute_picker"
             android:text="@string/r_colon"
             android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <android.support.design.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="bottom|center"
+                android:layout_margin="15dp"
+                android:src="@mipmap/ic_play" />
+
+        </android.support.design.widget.CoordinatorLayout>
 
     </RelativeLayout>
 

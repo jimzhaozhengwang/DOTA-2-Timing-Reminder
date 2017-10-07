@@ -10,8 +10,6 @@
     <string name="r_seconds">Seconds</string>
     <string name="r_colon">:</string>
     <string name="title_activity_settings">SettingsActivity</string>
-    <string name="r_pause">Pause</string>
-    <string name="r_play">Play</string>
     <string name="r_rune">Rune</string>
     <string name="r_settings">Settings</string>
     <string name="r_stack">Stack</string>

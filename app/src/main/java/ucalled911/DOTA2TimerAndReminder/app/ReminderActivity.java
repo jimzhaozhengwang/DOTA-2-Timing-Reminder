@@ -6,14 +6,14 @@ import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Handler;
 import android.os.PowerManager;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.ToggleButton;
 
 import ucalled911.DOTA2TimerAndReminder.R;
 
@@ -41,6 +41,10 @@ public class ReminderActivity extends AppCompatActivity {
     private PowerManager power_manager;
     private PowerManager.WakeLock wake_lock;
     private Toolbar toolbar;
+    private ImageButton forward_button;
+    private ImageButton rewind_button;
+    private FloatingActionButton play_pause_button;
+    private boolean play;
 
     private Handler timerHandler = new Handler();
     private Runnable timerRunnable = new Runnable() {
@@ -67,14 +71,13 @@ public class ReminderActivity extends AppCompatActivity {
     private int convert(String string_value) {
         if (string_value.equals("OFF")) {
             return -1;
-        } else {
-            return Integer.parseInt(string_value);
         }
+        return Integer.parseInt(string_value);
     }
 
 
     private void setupToolbar(){
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -110,54 +113,56 @@ public class ReminderActivity extends AppCompatActivity {
 
         main_activity = new Intent(ReminderActivity.this, MainActivity.class);
 
-        minus_button_listener();
-        plus_button_listener();
+        rewind_button_listener();
+        forward_button_listener();
         play_pause_button_listener();
-        reset_button_listener();
 
         startTime = System.currentTimeMillis();
         timerHandler.postDelayed(timerRunnable, 0);
         display_time();
+
+        play = true;
     }
 
-    public void minus_button_listener() {
-        Button minus_button = (Button) findViewById(R.id.minus_button);
-        minus_button.setOnClickListener(
-                new Button.OnClickListener() {
-                    public void onClick(View v) {
+    public void rewind_button_listener() {
+        rewind_button = findViewById(R.id.rewind_button);
+        rewind_button.setOnClickListener(
+                new ImageButton.OnClickListener(){
+                    public void onClick(View v){
                         backward_second_logic();
                     }
                 }
         );
     }
 
-    public void plus_button_listener() {
-        Button plus_button = (Button) findViewById(R.id.plus_button);
-        plus_button.setOnClickListener(
-                new Button.OnClickListener() {
-                    public void onClick(View v) {
+    public void forward_button_listener() {
+        forward_button = findViewById(R.id.forward_button);
+        forward_button.setOnClickListener(
+                new ImageButton.OnClickListener(){
+                    public void onClick(View v){
                         forward_second_logic();
                     }
                 }
         );
+
+
     }
 
     public void play_pause_button_listener() {
-        final ToggleButton play_pause_button = (ToggleButton) findViewById(R.id.play_pause_button);
-        final String pause = getResources().getString(R.string.r_pause);
-        final String play = getResources().getString(R.string.r_play);
-        play_pause_button.setText(pause);
-        play_pause_button.setTextOn(play);
-        play_pause_button.setTextOff(pause);
+        play_pause_button = findViewById(R.id.play_pause_button);
 
         play_pause_button.setOnClickListener(
-                new Button.OnClickListener() {
-                    public void onClick(View V) {
-                        if (play_pause_button.getText().equals(play)) {
+                new FloatingActionButton.OnClickListener(){
+                    public void onClick(View v){
+                        if (play){
                             timerHandler.removeCallbacks(timerRunnable);
-                        } else {
+                            play_pause_button.setImageResource(R.mipmap.ic_play);
+                            play = false;
+                        }else{ //pause
                             startTime = System.currentTimeMillis();
                             timerHandler.postDelayed(timerRunnable, 0);
+                            play_pause_button.setImageResource(R.mipmap.ic_pause);
+                            play = true;
                         }
                     }
                 }
@@ -249,9 +254,7 @@ public class ReminderActivity extends AppCompatActivity {
     }
 
     public void myFinished() {
-        final String pause = getResources().getString(R.string.r_pause);
-        final ToggleButton play_pause_button = (ToggleButton) findViewById(R.id.play_pause_button);
-        if (play_pause_button.getText().equals(pause)) {
+        if (play){
             play_pause_button.performClick();
         }
         timerHandler.removeCallbacksAndMessages(null);
@@ -279,19 +282,6 @@ public class ReminderActivity extends AppCompatActivity {
         startActivity(main_activity);
     }
 
-    public void reset_button_listener() {
-        Button reset_button = (Button) findViewById(R.id.reset_button);
-        reset_button.setOnClickListener(
-                new Button.OnClickListener() {
-                    public void onClick(View v) {
-                        myFinished();
-                        finish(); // calls onDestroy
-                        startActivity(main_activity);
-                    }
-                }
-        );
-    }
-
     // leave the audio running while in background
     /*
     @Override
@@ -301,7 +291,6 @@ public class ReminderActivity extends AppCompatActivity {
         super.onPause();
     }
     */
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
