@@ -4,21 +4,25 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
+import android.nfc.Tag;
 import android.os.Handler;
 import android.os.PowerManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 import ucalled911.DOTA2TimerAndReminder.R;
+import ucalled911.DOTA2TimerAndReminder.library.RepeatListener;
 
 public class ReminderActivity extends AppCompatActivity {
-
+    String TAG = "error";
     private MainActivity access = new MainActivity();
     private int second = access.getSecond();
     private int minute = access.getMinute();
@@ -126,26 +130,22 @@ public class ReminderActivity extends AppCompatActivity {
 
     public void rewind_button_listener() {
         rewind_button = findViewById(R.id.rewind_button);
-        rewind_button.setOnClickListener(
-                new ImageButton.OnClickListener(){
-                    public void onClick(View v){
-                        backward_second_logic();
-                    }
-                }
-        );
+        rewind_button.setOnTouchListener(new RepeatListener(800, 500, new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                backward_second_logic();
+            }
+        }));
     }
 
     public void forward_button_listener() {
         forward_button = findViewById(R.id.forward_button);
-        forward_button.setOnClickListener(
-                new ImageButton.OnClickListener(){
-                    public void onClick(View v){
-                        forward_second_logic();
-                    }
-                }
-        );
-
-
+        forward_button.setOnTouchListener(new RepeatListener(800, 500, new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                forward_second_logic();
+            }
+        }));
     }
 
     public void play_pause_button_listener() {
@@ -189,7 +189,11 @@ public class ReminderActivity extends AppCompatActivity {
                 second++;
             }
         }
-        display_time();
+        try {
+            display_time();
+        }catch(IllegalStateException e){
+            Log.e(TAG, Log.getStackTraceString(e));
+        }
     }
 
     public void forward_second_logic() {
@@ -208,7 +212,11 @@ public class ReminderActivity extends AppCompatActivity {
                 second--;
             }
         }
-        display_time();
+        try {
+            display_time();
+        }catch(IllegalStateException e){
+            Log.e(TAG, Log.getStackTraceString(e));
+        }
     }
 
     public void display_time() {
@@ -257,7 +265,6 @@ public class ReminderActivity extends AppCompatActivity {
         if (play){
             play_pause_button.performClick();
         }
-        timerHandler.removeCallbacksAndMessages(null);
         spawn_sound.stop();
         stack_sound.stop();
         rune_sound.stop();
@@ -272,6 +279,8 @@ public class ReminderActivity extends AppCompatActivity {
         night_sound.release();
         the_battle_begins_sound.release();
         wake_lock.release();
+        timerHandler.removeCallbacksAndMessages(null);
+
     }
 
     @Override
