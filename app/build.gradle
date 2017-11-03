@@ -8,8 +8,8 @@ android {
         applicationId "ucalled911.DOTA2TimerAndReminder"
         minSdkVersion 16
         targetSdkVersion 26
-        versionCode 3
-        versionName "2.00"
+        versionCode 4
+        versionName "2.1"
     }
     buildTypes {
         release {
