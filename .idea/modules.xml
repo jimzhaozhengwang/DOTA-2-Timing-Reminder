@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/DOTA-2-Timing-Reminder.iml" filepath="$PROJECT_DIR$/DOTA-2-Timing-Reminder.iml" />
+      <module fileurl="file://C:\Users\Jim\AndroidStudioProjects\DOTA2TimerAndReminder\DOTA-2-Timing-Reminder.iml" filepath="C:\Users\Jim\AndroidStudioProjects\DOTA2TimerAndReminder\DOTA-2-Timing-Reminder.iml" />
       <module fileurl="file://$PROJECT_DIR$/DOTA2TimerAndReminder.iml" filepath="$PROJECT_DIR$/DOTA2TimerAndReminder.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
