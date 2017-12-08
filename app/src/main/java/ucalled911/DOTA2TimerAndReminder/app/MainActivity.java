@@ -47,10 +47,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void setUpToolbar(){
         toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle(R.string.r_timing_reminder);
         setSupportActionBar(toolbar);
-        // set title not working
-        //getSupportActionBar().setDisplayShowTitleEnabled(false);
-        //toolbar.setLogo(R.mipmap.ic_launcher);
     }
 
 
