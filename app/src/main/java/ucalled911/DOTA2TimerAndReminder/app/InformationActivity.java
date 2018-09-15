@@ -21,7 +21,7 @@ import ucalled911.DOTA2TimerAndReminder.fragments.FragmentOne;
 import ucalled911.DOTA2TimerAndReminder.fragments.FragmentThree;
 import ucalled911.DOTA2TimerAndReminder.fragments.FragmentTwo;
 
-public class InformationActivity extends AppCompatActivity{
+public class InformationActivity extends AppCompatActivity {
 
     private ArrayList<Fragment> fragment_list = new ArrayList<Fragment>();
     private ArrayList<String> title_list = new ArrayList<String>();
@@ -30,12 +30,12 @@ public class InformationActivity extends AppCompatActivity{
     private TabLayout tab_layout;
     private Intent main_activity;
 
-    private void addData (Fragment fragment, String text){
+    private void addData(Fragment fragment, String text) {
         fragment_list.add(fragment);
         title_list.add(text);
     }
 
-    private void prepareDataResource(){
+    private void prepareDataResource() {
         addData(new FragmentOne(), "Rune");
         addData(new FragmentTwo(), "Stack");
         addData(new FragmentThree(), "Spawn");
@@ -43,7 +43,7 @@ public class InformationActivity extends AppCompatActivity{
     }
 
 
-    private void setupToolbar(){
+    private void setupToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle(R.string.r_information);
         setSupportActionBar(toolbar);
@@ -52,7 +52,7 @@ public class InformationActivity extends AppCompatActivity{
     }
 
     @Override
-    protected void onCreate (@Nullable Bundle savedInstanceState){
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_information);
 
@@ -70,11 +70,10 @@ public class InformationActivity extends AppCompatActivity{
     }
 
 
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == android.R.id.home){
+        if (id == android.R.id.home) {
             // for API 11 +
             onBackPressed();
             // API 16 +

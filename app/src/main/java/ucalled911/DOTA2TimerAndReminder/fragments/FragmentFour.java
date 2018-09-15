@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 
 import ucalled911.DOTA2TimerAndReminder.R;
 
-public class FragmentFour extends Fragment{
+public class FragmentFour extends Fragment {
 
     @Nullable
     @Override

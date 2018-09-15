@@ -4,12 +4,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
-import android.nfc.Tag;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.PowerManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
@@ -80,7 +79,7 @@ public class ReminderActivity extends AppCompatActivity {
     }
 
 
-    private void setupToolbar(){
+    private void setupToolbar() {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeButtonEnabled(true);
@@ -152,13 +151,13 @@ public class ReminderActivity extends AppCompatActivity {
         play_pause_button = findViewById(R.id.play_pause_button);
 
         play_pause_button.setOnClickListener(
-                new FloatingActionButton.OnClickListener(){
-                    public void onClick(View v){
-                        if (play){
+                new FloatingActionButton.OnClickListener() {
+                    public void onClick(View v) {
+                        if (play) {
                             timerHandler.removeCallbacks(timerRunnable);
                             play_pause_button.setImageResource(R.mipmap.ic_play);
                             play = false;
-                        }else{ //pause
+                        } else { //pause
                             startTime = System.currentTimeMillis();
                             timerHandler.postDelayed(timerRunnable, 0);
                             play_pause_button.setImageResource(R.mipmap.ic_pause);
@@ -191,7 +190,7 @@ public class ReminderActivity extends AppCompatActivity {
         }
         try {
             display_time();
-        }catch(IllegalStateException e){
+        } catch (IllegalStateException e) {
             Log.e(TAG, Log.getStackTraceString(e));
         }
     }
@@ -214,7 +213,7 @@ public class ReminderActivity extends AppCompatActivity {
         }
         try {
             display_time();
-        }catch(IllegalStateException e){
+        } catch (IllegalStateException e) {
             Log.e(TAG, Log.getStackTraceString(e));
         }
     }
@@ -236,7 +235,7 @@ public class ReminderActivity extends AppCompatActivity {
                     spawn_sound.start();
                 }
             } else { // positive_negative == 1
-                if (rune_time != -1 && minute % 2 != 0 && second == 60 - rune_time) {
+                if (rune_time != -1 && (minute % 2 != 0 && second == 60 - rune_time) || (minute % 5 == 4 && second == 60 - rune_time)) {
                     rune_sound.start();
                 }
                 if (stack_time != -1 && second == 54 - stack_time) {
@@ -262,7 +261,7 @@ public class ReminderActivity extends AppCompatActivity {
     }
 
     public void myFinished() {
-        if (play){
+        if (play) {
             play_pause_button.performClick();
         }
         spawn_sound.stop();
@@ -280,7 +279,6 @@ public class ReminderActivity extends AppCompatActivity {
         the_battle_begins_sound.release();
         wake_lock.release();
         timerHandler.removeCallbacksAndMessages(null);
-
     }
 
     @Override
@@ -304,7 +302,7 @@ public class ReminderActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == android.R.id.home){
+        if (id == android.R.id.home) {
             // for API 11 +
             onBackPressed();
             // API 16 +

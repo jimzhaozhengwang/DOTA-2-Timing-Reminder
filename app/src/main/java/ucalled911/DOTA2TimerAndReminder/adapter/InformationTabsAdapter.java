@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import java.util.ArrayList;
 
-public class InformationTabsAdapter extends FragmentPagerAdapter{
+public class InformationTabsAdapter extends FragmentPagerAdapter {
 
     private ArrayList<Fragment> fragment_list;
     private ArrayList<String> title_list;

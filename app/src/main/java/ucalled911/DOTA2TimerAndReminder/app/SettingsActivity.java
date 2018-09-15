@@ -48,7 +48,7 @@ public class SettingsActivity extends AppCompatActivity {
 
         rune_time = shared_preferences.getString("rune_time", "20");
         stack_time = shared_preferences.getString("stack_time", "20");
-        spawn_time = shared_preferences.getString("spawn_time", "15");
+        spawn_time = shared_preferences.getString("spawn_time", "10");
         day_night_time = shared_preferences.getString("day_night_time", "30");
 
         ten_seconds_array = getResources().getStringArray(R.array.r_ten_seconds_array);

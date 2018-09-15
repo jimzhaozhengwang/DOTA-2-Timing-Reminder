@@ -39,13 +39,13 @@ public class MainActivity extends AppCompatActivity {
         start_button_listener();
     }
 
-    private void setUpDrawer(){
+    private void setUpDrawer() {
         NavigationDrawerFragment drawerFragment = (NavigationDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.nav_drwr_fragment);
         DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawerFragment.setUpDrawer(R.id.nav_drwr_fragment, drawerLayout, toolbar);
     }
 
-    private void setUpToolbar(){
+    private void setUpToolbar() {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle(R.string.r_timing_reminder);
         setSupportActionBar(toolbar);
@@ -59,14 +59,14 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    public boolean go_to_settings(){
+    public boolean go_to_settings() {
         Intent settings_activity = new Intent(MainActivity.this, SettingsActivity.class);
         finish();
         startActivity(settings_activity);
         return true;
     }
 
-    public boolean go_to_information(){
+    public boolean go_to_information() {
         Intent information_activity = new Intent(MainActivity.this, InformationActivity.class);
         finish();
         startActivity(information_activity);
@@ -76,16 +76,16 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.information){
+        if (id == R.id.information) {
             go_to_information();
-        }else if (id == R.id.settings){
+        } else if (id == R.id.settings) {
             go_to_settings();
         }
 
         return super.onOptionsItemSelected(item);
     }
 
-    public void second_picker_listener(){
+    public void second_picker_listener() {
         NumberPicker second_picker = (NumberPicker) findViewById(R.id.second_picker);
         second_picker.setMaxValue(59);
         second_picker.setMinValue(0);
@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
         );
     }
 
-    public void minute_picker_listener(){
+    public void minute_picker_listener() {
         NumberPicker minute_picker = (NumberPicker) findViewById(R.id.minute_picker);
         minute_picker.setMaxValue(99);
         minute_picker.setMinValue(0);
@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
         );
     }
 
-    public void start_button_listener(){
+    public void start_button_listener() {
         final RadioButton before_button = (RadioButton) findViewById(R.id.before_button);
         // RadioButton after_button = (RadioButton) findViewById(R.id.after_button);
         final RadioGroup before_after_group = (RadioGroup) findViewById(R.id.before_after_group);
@@ -143,15 +143,15 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public int getSecond(){
+    public int getSecond() {
         return second;
     }
 
-    public int getMinute(){
+    public int getMinute() {
         return minute;
     }
 
-    public String getPlus_minus_zero(){
+    public String getPlus_minus_zero() {
         return plus_minus_zero;
     }
 }
